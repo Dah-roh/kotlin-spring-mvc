@@ -8,7 +8,19 @@ import org.springframework.web.servlet.ModelAndView
 @Controller
 class MainController {
 
-    @RequestMapping("helloWorld")
-    fun helloWorld(): ModelAndView = ModelAndView("helloWorld")
 
+    @RequestMapping("")
+    fun homePage(): ModelAndView = ModelAndView("seatBooking", "bean", CheckAvailabilityBackingBean())
+
+}
+
+
+
+class CheckAvailabilityBackingBean() {
+
+    val seatNumber = 1..40
+    val seatRows = 'A'..'O'
+    var selectedSeatNumber: Int = 1
+    var selectedSeatRow: Char = 'A'
+    var result: String = ""
 }
